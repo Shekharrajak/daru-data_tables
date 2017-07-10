@@ -1,8 +1,7 @@
 
 module DataTables
   class DataTable
-    def initialize(data=[], options={})
-      @data = data
+    def initialize(options=nil)
       @options = options
     end
   end

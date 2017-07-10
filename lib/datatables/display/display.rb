@@ -1,8 +1,18 @@
 require 'securerandom'
 require 'erb'
 require_relative 'iruby_notebook'
+require 'datatables/generate_js/generate_js'
 
 module DataTables
+  # dependent script for the library. It must be added in the head tag
+  # of the web application.
+  #
+  # @example
+  #
+  # dep_js = DataTables.init_script
+  #
+  # use in Rails app : <%=raw dep_js %>
+  #
   def self.init_script(
     dependent_js=[
       'jquery-1.12.4.js', 'jquery.dataTables.min.js',
@@ -39,9 +49,22 @@ module DataTables
     def show_in_iruby(dom=SecureRandom.uuid)
       IRuby.html(to_html(dom))
     end
+
+    # Generates JavaScript and renders the tabke in the final HTML output.
+    #
+    # Parameters:
+    #  *element_id            [Required] The ID of the DIV element that the table should be rendered in.
+    def to_js(element_id)
+      js =  ""
+      js << "\n<script type='text/javascript'>"
+      js << draw_js(element_id)
+      js << "\n</script>"
+      js
+    end
   end # module Display end
 
   class DataTable
-    include display
+    include Display
+    include JsHelpers
   end
 end

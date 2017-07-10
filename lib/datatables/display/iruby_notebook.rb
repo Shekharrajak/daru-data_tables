@@ -8,8 +8,16 @@ module DataTables
   end
 
   # Enable to show plots on IRuby notebook.
+  # Load the dependent JS files in IRuby notebook. Those JS will help in
+  # plotting the table in IRuby cell.
+  #
+  # One can see the loaded JS files in the source code of the notebook.
+  # @example
+  #
+  # DataTables.init_iruby
+  #
   def self.init_iruby(
-    dependent_js=['jquery.dataTables.min.js', 'dataTables.scroller.min.js']
+    dependent_js=['jquery-1.12.4.js','jquery.dataTables.min.js', 'dataTables.scroller.min.js']
   )
     # Note: Jquery is dependecy for DataTables.
     # Since Jquery is already a dependency for iruby notebook.
