@@ -17,12 +17,16 @@ module DataTables
     dependent_js=[
       'jquery-1.12.4.js', 'jquery.dataTables.min.js',
       'dataTables.scroller.min.js'
-    ]
+    ],
+    dependent_css=['jquery.dataTables.min.css', 'scroller.dataTables.min.css']
   )
     js =  ''
     js << "\n<script type='text/javascript'>"
-    js << DataTables.generate_init_code(dependent_js)
+    js << DataTables.generate_init_code_js(dependent_js)
     js << "\n</script>"
+    js << "<style>"
+    js << DataTables.generate_init_code_css(dependent_css)
+    js << "\n</style>"
     js
   end
 
