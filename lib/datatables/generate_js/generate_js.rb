@@ -14,7 +14,7 @@ module DataTables
       js << "\n$(document).ready(function() {"
       js << "\n"
       # js << "\n  $('##{element_id}').DataTable("
-      js << "\n  $('#example').DataTable("
+      js << "\n  $('##{element_id}').DataTable("
       js << "\n    #{js_parameters(@options)}"
       js << "\n  );"
       js << "\n"
