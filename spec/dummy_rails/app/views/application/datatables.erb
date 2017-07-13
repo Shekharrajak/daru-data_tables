@@ -1,10 +1,8 @@
 <br>
 
   <b>Data : </b>
-  <%=raw @table.to_html %>
-  <br>
 
-  <%=raw @table %>
+  <%=raw @table.to_js('example') %>
 
 <table id="example" class="display" cellspacing="0" width="100%">
         <thead>
@@ -486,3 +484,17 @@
             </tr>
         </tbody>
     </table>
+
+<br><br><br><br>
+
+<h3>Daru and DataTables</h3>
+<br>
+<b> DataFrame : </b> <%=raw @df.to_html %>
+<br>
+<b> table : </b> <%=raw @html_code %>
+<%=raw @df.to_html('table_id1') %>
+
+<br>
+<b> using df.to_html_tbody and thead method</b>
+<br>
+<%=raw @html_code2 %>

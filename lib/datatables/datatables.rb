@@ -1,8 +1,12 @@
+require 'securerandom'
 
 module DataTables
   class DataTable
-    def initialize(options=nil)
-      @options = options
+
+    attr_accessor :html_options, :element_id, :options
+    def initialize(options={})
+      @element_id = options.delete(:element_id) unless options[:element_id].nil?
+      @options = options.empty? ? nil : options
     end
   end
 end

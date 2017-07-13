@@ -3,6 +3,12 @@ PATH
   specs:
     datatables (0.1.0)
 
+PATH
+  remote: /Users/shekharrajak/Documents/gsoc17/daru
+  specs:
+    daru (0.1.5)
+      backports
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -46,6 +52,7 @@ GEM
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (8.0.0)
+    backports (3.8.0)
     bindex (0.5.0)
     builder (3.2.3)
     byebug (9.0.6)
@@ -175,10 +182,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionview
   bundler (~> 1.15)
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  daru!
   datatables!
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
