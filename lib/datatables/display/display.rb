@@ -2,6 +2,7 @@ require 'securerandom'
 require 'erb'
 require_relative 'iruby_notebook'
 require 'datatables/generate_js/generate_js'
+require 'action_view'
 
 module DataTables
   # dependent script for the library. It must be added in the head tag
@@ -42,12 +43,23 @@ module DataTables
       end
     end
 
+    # If table_options is not present then it will assume that table tag is
+    # already present in the web page source, where we are pasting the
+    # html code.
     def to_html(id=nil, options={})
-      path = File.expand_path('../../templates/table_div.erb', __FILE__)
+      # Some more things can be added into table_script.erb
+      path = File.expand_path('../../templates/table_script.erb', __FILE__)
       template = File.read(path)
-      id ||= SecureRandom.uuid
+      id ||= SecureRandom.uuid # TODO: remove it or Use it for table tag.
       table_script = show_script(id, script_tag: false)
-      ERB.new(template).result(binding)
+      html_code = ERB.new(template).result(binding)
+      unless options[:table_options].nil?
+        options[:table_options][:id] = id
+        table_thead_tbody = options[:table_options].delete(:table_html)
+        table_thead_tbody ||= ""
+        html_code.concat(content_tag("table", table_thead_tbody.html_safe, options[:table_options]))
+      end
+      html_code
     end
 
     def show_in_iruby(dom=SecureRandom.uuid)
@@ -68,6 +80,7 @@ module DataTables
   end # module Display end
 
   class DataTable
+    include ActionView::Helpers::TagHelper  # to use content_tag
     include Display
     include JsHelpers
   end
