@@ -25,7 +25,7 @@ module DataTables
     js << "\n<script type='text/javascript'>"
     js << DataTables.generate_init_code_js(dependent_js)
     js << "\n</script>"
-    js << "<style>"
+    js << "<style type='text/css'>"
     js << DataTables.generate_init_code_css(dependent_css)
     js << "\n</style>"
     js

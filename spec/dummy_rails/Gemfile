@@ -10,6 +10,8 @@ gemspec  :path => '../../'
 # daru
 gem "daru", git: 'https://github.com/shekharrajak/daru.git', :branch => 'html_table_with_id'
 
+# gem "daru", path: '/Users/shekharrajak/Documents/gsoc17/daru'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
 # Use sqlite3 as the database for Active Record
