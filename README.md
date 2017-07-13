@@ -1,8 +1,12 @@
 # Datatables
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/datatables`. To experiment with that code, run `bin/console` for an interactive prompt.
+Ruby gem for the jQuery Javascript library Datatables. This gem is created so that it can be used in [daru-view](https://guthub.com/shekharrajak/daru-view), to create table from daru DataFrame and Vector and easiy to display in webpages as well as IRuby notebook.
 
-TODO: Delete this and the text above, and describe your gem
+Since DataTable is very useful in loading large dataset and also we can load data into pieces.
+
+## Examples :
+
+- [IRuby notebook examples](http://nbviewer.jupyter.org/github/Shekharrajak/datatables.rb/tree/master/spec/dummy_iruby/)
 
 ## Installation
 

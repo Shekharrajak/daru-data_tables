@@ -1,13 +1,15 @@
+GIT
+  remote: https://github.com/shekharrajak/daru.git
+  revision: 2e59dc10aa0dee691275f9fc165656c06ed1da83
+  branch: html_table_with_id
+  specs:
+    daru (0.1.5)
+      backports
+
 PATH
   remote: ../..
   specs:
     datatables (0.1.0)
-
-PATH
-  remote: /Users/shekharrajak/Documents/gsoc17/daru
-  specs:
-    daru (0.1.5)
-      backports
 
 GEM
   remote: https://rubygems.org/
