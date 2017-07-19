@@ -1,7 +1,6 @@
 GIT
-  remote: https://github.com/shekharrajak/daru.git
-  revision: 85904511191ee3d17280c075ab459443339c5c0b
-  branch: html_table_with_id
+  remote: https://github.com/sciruby/daru.git
+  revision: 9f304c1b7fe41f610bc1269a01deb693ba313134
   specs:
     daru (0.1.5)
       backports
