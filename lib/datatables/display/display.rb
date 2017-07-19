@@ -25,7 +25,7 @@ module DataTables
     js << "\n<script type='text/javascript'>"
     js << DataTables.generate_init_code_js(dependent_js)
     js << "\n</script>"
-    js << "<style type='text/css'>"
+    js << "\n<style type='text/css'>"
     js << DataTables.generate_init_code_css(dependent_css)
     js << "\n</style>"
     js
@@ -53,6 +53,8 @@ module DataTables
       id ||= SecureRandom.uuid # TODO: remove it or Use it for table tag.
       table_script = show_script(id, script_tag: false)
       html_code = ERB.new(template).result(binding)
+      # table_options is given. That means table html code is not present in
+      # the webpage. So it must generate table code with given options.
       unless options[:table_options].nil?
         options[:table_options][:id] = id
         table_thead_tbody = options[:table_options].delete(:table_html)

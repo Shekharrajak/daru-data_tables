@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
       cellspacing: "0",
       width: "100%"
       }
-    options ={
+    options = {
         table_options: table_opts
     }
     # @df.element_id = 'table_id2'
