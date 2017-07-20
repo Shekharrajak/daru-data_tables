@@ -48,7 +48,7 @@ module DataTables
     # already present in the web page source, where we are pasting the
     # html code.
     def to_html(id=nil, options={})
-      # Some more things can be added into table_script.erb
+      # More things can be added into table_script.erb
       path = File.expand_path('../../templates/table_script.erb', __FILE__)
       template = File.read(path)
       id ||= SecureRandom.uuid # TODO: remove it or Use it for table tag.
