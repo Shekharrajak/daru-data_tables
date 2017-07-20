@@ -1,13 +1,14 @@
+GIT
+  remote: https://github.com/sciruby/daru.git
+  revision: 9f304c1b7fe41f610bc1269a01deb693ba313134
+  specs:
+    daru (0.1.5)
+      backports
+
 PATH
   remote: ../..
   specs:
     datatables (0.1.0)
-
-PATH
-  remote: /Users/shekharrajak/Documents/gsoc17/daru
-  specs:
-    daru (0.1.5)
-      backports
 
 GEM
   remote: http://rubygems.org/

@@ -24,13 +24,18 @@ module DataTables
   # DataTables.init_iruby
   #
   def self.init_iruby(
-    dependent_js=['jquery-1.12.4.js','jquery.dataTables.min.js', 'dataTables.scroller.min.js']
+    dependent_js=['jquery.dataTables.js'],
+    dependent_css=['jquery.dataTables.css']
   )
     # Note: Jquery is dependecy for DataTables.
     # Since Jquery is already a dependency for iruby notebook.
     # So it will be loaded into IRuby notebook when `iruby` is run.
     # No need to add it in the `dependent_js`.
     js = generate_init_code_js(dependent_js)
+    css = generate_init_code_css(dependent_css)
     IRuby.display(IRuby.javascript(js))
+    # IRuby.display(css, mime: 'text/stylesheet')
+    # FixMe: Don't know, how to add css in IRuby notebook (Means there is
+    # no IRuby.stylesheet(..) method)
   end
 end

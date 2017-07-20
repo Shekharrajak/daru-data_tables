@@ -26,7 +26,17 @@ Or install it yourself as:
 
 ## Usage
 
+See iruby notebook examples and spec/dummy_rails examples.
+
 TODO: Write usage instructions here
+
+
+## Update to latest js library. Additional command line
+
+  To update to the current datatables js and css files you can always run
+
+    rake datatables:update
+
 
 ## Development
 

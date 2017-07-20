@@ -1,5 +1,6 @@
 <br>
 
+<h3> HTML table is present in the webpage : </h3>
   <b>Data : </b>
 
   <%=raw @table.to_js('example') %>
@@ -489,12 +490,24 @@
 
 <h3>Daru and DataTables</h3>
 <br>
-<b> DataFrame : </b> <%=raw @df.to_html %>
+<b> DataFrame @df.to_html : </b> <%=raw @df.to_html %>
 <br>
-<b> table : </b> <%=raw @html_code %>
-<%=raw @df.to_html('table_id1') %>
+<b> table : @html_code (for below @df html table)</b> <%=raw @html_code %>
+<b> </b> <br>
+<%=raw "<table id='table_id1'>" + @df.to_html_thead + @df.to_html_tbody + "</table>" %>
 
 <br>
-<b> using df.to_html_tbody and thead method</b>
+<b> using df#to_html_tbody and thead method</b>
 <br>
 <%=raw @html_code2 %>
+
+<br>
+<b> using Array of array data (Sorted)</b>
+<br>
+<%=raw @html_code_array_sorted %>
+
+<br>
+<b> using Array of array data (order which was given in array)</b>
+<br>
+<%=raw @html_code_array %>
+

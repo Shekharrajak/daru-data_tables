@@ -8,7 +8,7 @@ end
 # datatables
 gemspec  :path => '../../'
 # daru
-gem "daru", git: 'https://github.com/shekharrajak/daru.git', :branch => 'html_table_with_id'
+gem "daru", git: 'https://github.com/sciruby/daru.git'
 
 # gem "daru", path: '/Users/shekharrajak/Documents/gsoc17/daru'
 

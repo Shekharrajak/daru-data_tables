@@ -17,12 +17,62 @@ class ApplicationController < ActionController::Base
       cellspacing: "0",
       width: "100%"
       }
-    options ={
+    options = {
         table_options: table_opts
     }
-    # @df.element_id = 'table_id2'
     options[:table_options][:table_html] = @df.to_html_thead + @df.to_html_tbody
     @html_code2 = t.to_html(id='table_id2', options)
+
+    t_opts = {
+        data: [[1,1,1],
+          [1,2,3],
+          [11,12,13],
+          [1,2,3],
+          [11,12,13],
+          [1,2,3],
+          [11,12,13]
+        ],
+        pageLength: 4
+    }
+    table_from_array = DataTables::DataTable.new(t_opts)
+    table_opts = {
+      class: "display",
+      cellspacing: "0",
+      width: "50%",
+      table_html: "
+      <thead>
+            <tr>
+                <th>Num1 </th>
+                <th>Num2 </th>
+                <th>Num3 </th>
+            </tr>
+        </thead>"
+      }
+    options = {
+        table_options: table_opts
+    }
+    @html_code_array_sorted = table_from_array.to_html(id='table_id3', options)
+
+    t_opts[:ordering] = false
+    table_from_array = DataTables::DataTable.new(t_opts)
+    table_opts = {
+      class: "display",
+      cellspacing: "0",
+      width: "50%",
+      table_html: "
+      <thead>
+            <tr>
+                <th>Num1 </th>
+                <th>Num2 </th>
+                <th>Num3 </th>
+            </tr>
+        </thead>"
+      }
+    options = {
+        table_options: table_opts
+    }
+    @html_code_array = table_from_array.to_html(id='table_id4', options)
+
   end
 
 

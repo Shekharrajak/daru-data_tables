@@ -16,16 +16,17 @@ module DataTables
   #
   def self.init_script(
     dependent_js=[
-      'jquery-1.12.4.js', 'jquery.dataTables.min.js',
-      'dataTables.scroller.min.js'
+      'jquery-latest.min.js', 'jquery.dataTables.js'
     ],
-    dependent_css=['jquery.dataTables.min.css', 'scroller.dataTables.min.css']
+    dependent_css=['jquery.dataTables.css']
   )
+    # TODO: there are many js and css files, that must be added for
+    # more fetures. Refer: https://datatables.net/download/index
     js =  ''
     js << "\n<script type='text/javascript'>"
     js << DataTables.generate_init_code_js(dependent_js)
     js << "\n</script>"
-    js << "<style type='text/css'>"
+    js << "\n<style type='text/css'>"
     js << DataTables.generate_init_code_css(dependent_css)
     js << "\n</style>"
     js
@@ -47,12 +48,14 @@ module DataTables
     # already present in the web page source, where we are pasting the
     # html code.
     def to_html(id=nil, options={})
-      # Some more things can be added into table_script.erb
+      # More things can be added into table_script.erb
       path = File.expand_path('../../templates/table_script.erb', __FILE__)
       template = File.read(path)
       id ||= SecureRandom.uuid # TODO: remove it or Use it for table tag.
       table_script = show_script(id, script_tag: false)
       html_code = ERB.new(template).result(binding)
+      # table_options is given. That means table html code is not present in
+      # the webpage. So it must generate table code with given options.
       unless options[:table_options].nil?
         options[:table_options][:id] = id
         table_thead_tbody = options[:table_options].delete(:table_html)

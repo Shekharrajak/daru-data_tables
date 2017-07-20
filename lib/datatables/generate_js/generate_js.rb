@@ -22,33 +22,15 @@ module DataTables
       js
     end
 
-    # def draw_js(element_id)
-    #   js = ''
-    #   js << "\n $(function() {"
-    #   js << "\n   $('##{element_id}').DataTable();"
-    #   js << "\n });"
-    #   js
-    # end
-
-    # def draw_js(element_id)
-    #   js = ''
-    #   js << "(function() {
-    #     var data = [];
-    #     for ( var i=0 ; i<50000 ; i++ ) {
-    #         data.push( [ i, i, i, i, i ] );
-    #     };
-
-    #     function_table(){
-    #       ('#{element_id}').DataTable( {
-    #         data:           data,
-    #         deferRender:    true,
-    #         scrollY:        200,
-    #         scrollCollapse: true,
-    #         scroller:       true
-    #       } );
-    #     );
-    # })();"
-    #   js
-    # end
-  end # class end
+    def draw_js_iruby(element_id)
+      js = ''
+      js << "\n$( function () {"
+      js << "\n  var table = $('##{element_id}').DataTable("
+      js << "\n    #{js_parameters(@options)}"
+      js << "\n  );"
+      js << "\n"
+      js << "\n});"
+      js
+    end
+  end # module JsHelpers end
 end
