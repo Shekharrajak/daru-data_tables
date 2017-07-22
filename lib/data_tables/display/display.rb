@@ -1,7 +1,7 @@
 require 'securerandom'
 require 'erb'
 require_relative 'iruby_notebook'
-require 'datatables/generate_js/generate_js'
+require 'data_tables/generate_js/generate_js'
 require 'action_view'
 
 module DataTables
@@ -21,7 +21,7 @@ module DataTables
     dependent_css=['jquery.dataTables.css']
   )
     # TODO: there are many js and css files, that must be added for
-    # more fetures. Refer: https://datatables.net/download/index
+    # more features. Refer: https://datatables.net/download/index
     js =  ''
     js << "\n<script type='text/javascript'>"
     js << DataTables.generate_init_code_js(dependent_js)
@@ -60,7 +60,8 @@ module DataTables
         options[:table_options][:id] = id
         table_thead_tbody = options[:table_options].delete(:table_html)
         table_thead_tbody ||= ""
-        html_code.concat(content_tag("table", table_thead_tbody.html_safe, options[:table_options]))
+        html_code.concat(
+          content_tag("table", table_thead_tbody.html_safe, options[:table_options]))
       end
       html_code
     end

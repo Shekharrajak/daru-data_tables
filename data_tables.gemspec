@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "datatables/version"
+require "data_tables/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "datatables"
+  spec.name          = "data_tables"
   spec.version       = DataTables::VERSION
   spec.authors       = ["shekharrajak"]
   spec.email         = ["shekharstudy@ymail.com"]
 
   spec.summary       = %q{Ruby gem for the jQuery Javascript library Datatables}
   spec.description   = %q{Ruby gem for the jQuery Javascript library Datatables}
-  spec.homepage      = "https://github.com/shekharrajak/datatables.rb"
+  spec.homepage      = "https://github.com/shekharrajak/data_tables"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
