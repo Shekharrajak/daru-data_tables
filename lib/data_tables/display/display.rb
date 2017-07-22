@@ -1,7 +1,7 @@
 require 'securerandom'
 require 'erb'
 require_relative 'iruby_notebook'
-require 'datatables/generate_js/generate_js'
+require 'data_tables/generate_js/generate_js'
 require 'action_view'
 
 module DataTables
