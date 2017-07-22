@@ -1,4 +1,4 @@
 require "bundler/gem_tasks"
 task :default => :spec
 
-import 'lib/tasks/datatables.rake'
+import 'lib/tasks/data_tables.rake'
