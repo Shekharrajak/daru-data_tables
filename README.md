@@ -6,7 +6,7 @@ Since DataTable is very useful in loading large dataset and also we can load dat
 
 ## Examples :
 
-- [IRuby notebook examples](http://nbviewer.jupyter.org/github/Shekharrajak/data_tables.rb/tree/master/spec/dummy_iruby/)
+- [IRuby notebook examples](http://nbviewer.jupyter.org/github/Shekharrajak/data_tables/tree/master/spec/dummy_iruby/)
 
 ## Installation
 
@@ -28,7 +28,7 @@ Or install it yourself as:
 
 See iruby notebook examples and spec/dummy_rails examples.
 
-TODO: Write usage instructions here
+It can work in any ruby web application (e.g. Rails/Sinatra/Nanoc)
 
 
 ## Update to latest js library. Additional command line
