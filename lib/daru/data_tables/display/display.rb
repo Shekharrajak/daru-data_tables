@@ -60,9 +60,10 @@ module Daru
         unless options[:table_options].nil?
           options[:table_options][:id] = id
           table_thead_tbody = options[:table_options].delete(:table_html)
-          table_thead_tbody ||= ""
+          table_thead_tbody ||= ''
           html_code.concat(
-            content_tag("table", table_thead_tbody.html_safe, options[:table_options]))
+            content_tag('table', table_thead_tbody.html_safe, options[:table_options])
+          )
         end
         html_code
       end
@@ -76,16 +77,16 @@ module Daru
       # Parameters:
       #  *element_id            [Required] The ID of the DIV element that the table should be rendered in.
       def to_js(element_id)
-        js =  ""
-        js << "\n<script type='text/javascript'>"
+        js =  ''
+        js << '\n<script type=\'text/javascript\'>'
         js << draw_js(element_id)
-        js << "\n</script>"
+        js << '\n</script>'
         js
       end
     end # module Display end
 
     class DataTable
-      include ActionView::Helpers::TagHelper  # to use content_tag
+      include ActionView::Helpers::TagHelper # to use content_tag
       include Display
       include JsHelpers
     end
