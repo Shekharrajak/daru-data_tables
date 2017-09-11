@@ -1,8 +1,8 @@
 # data_tables
 
-Ruby gem for the jQuery Javascript library data_tables. This gem is created so that it can be used in [daru-view](https://guthub.com/shekharrajak/daru-view), to create table from daru DataFrame and Vector and easiy to display in webpages as well as IRuby notebook.
+This is Ruby gem for the jQuery Javascript library. This gem is created to be used in [daru-view](https://guthub.com/shekharrajak/daru-view). It can create table from Daru::DataFrame and Daru::Vector to display in webpages as well as IRuby notebook.
 
-Since DataTable is very useful in loading large dataset and also we can load data into pieces.
+DataTable is very useful in loading large dataset and also we can load data into pieces.
 
 ## Examples :
 
@@ -13,7 +13,7 @@ Since DataTable is very useful in loading large dataset and also we can load dat
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'data_tables'
+gem 'daru-data_tables'
 ```
 
 And then execute:
@@ -22,7 +22,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install data_tables
+    $ gem install daru-data_tables
 
 ## Usage
 
