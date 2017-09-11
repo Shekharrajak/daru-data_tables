@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "data_tables/version"
+require "daru/data_tables/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "data_tables"
-  spec.version       = DataTables::VERSION
+  spec.name          = "daru-data_tables"
+  spec.version       = Daru::DataTables::VERSION
   spec.authors       = ["shekharrajak"]
   spec.email         = ["shekharstudy@ymail.com"]
 

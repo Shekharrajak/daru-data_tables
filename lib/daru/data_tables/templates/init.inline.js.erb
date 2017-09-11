@@ -1,7 +1,7 @@
 <%
 
 dependent_js.each{ |dep_js|
-  contents = IO.read(File.join(js_dir,dep_js), mode: 'r:UTF-8')
+  contents = File.read(File.join(js_dir,dep_js), mode: 'r:UTF-8')
 %>
    /* BEGIN <%= dep_js %> */
 
