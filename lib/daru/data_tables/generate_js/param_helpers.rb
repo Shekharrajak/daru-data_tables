@@ -31,7 +31,7 @@ module Daru
         when value.is_a?(Integer) || value.is_a?(Float)
           value
         when value.is_a?(TrueClass) || value.is_a?(FalseClass)
-          '#{value}'
+          value.to_s
         when value.is_a?(DateTime) || value.is_a?(Time)
           if type == 'time'
             "new Date(0, 0, 0, #{value.hour}, #{value.min}, #{value.sec})"
@@ -39,7 +39,7 @@ module Daru
             "new Date(#{value.year}, #{value.month-1}, #{value.day}, #{value.hour}, #{value.min}, #{value.sec})"
           end
         when value.is_a?(Date)
-          'new Date(#{value.year}, #{value.month-1}, #{value.day})'
+          "new Date(#{value.year}, #{value.month-1}, #{value.day})"
         when value.nil?
           'null'
         when value.is_a?(Array)

@@ -78,9 +78,9 @@ module Daru
       #  *element_id            [Required] The ID of the DIV element that the table should be rendered in.
       def to_js(element_id)
         js =  ''
-        js << '\n<script type=\'text/javascript\'>'
+        js << "\n<script type='text/javascript'>"
         js << draw_js(element_id)
-        js << '\n</script>'
+        js << "\n</script>"
         js
       end
     end # module Display end
