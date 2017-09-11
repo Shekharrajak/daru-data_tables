@@ -2,16 +2,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def datatables
-    @table = DataTables::DataTable.new()
+    @table = Daru::DataTables::DataTable.new()
     @df = Daru::DataFrame.new({b: [11,12,13,14,15], a: [1,2,3,4,5],
       c: [11,22,33,44,55]},
       order: [:a, :b, :c],
       index: [:one, :two, :three, :four, :five])
-    @df_table_script = DataTables::DataTable.new()
+    @df_table_script = Daru::DataTables::DataTable.new()
     @html_code = ''
     @html_code << @df_table_script.to_js('table_id1')
 
-    t = DataTables::DataTable.new(pageLength: 4)
+    t = Daru::DataTables::DataTable.new(pageLength: 4)
     table_opts = {
       class: "display",
       cellspacing: "0",
@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
         ],
         pageLength: 4
     }
-    table_from_array = DataTables::DataTable.new(t_opts)
+    table_from_array = Daru::DataTables::DataTable.new(t_opts)
     table_opts = {
       class: "display",
       cellspacing: "0",
@@ -54,7 +54,7 @@ class ApplicationController < ActionController::Base
     @html_code_array_sorted = table_from_array.to_html(id='table_id3', options)
 
     t_opts[:ordering] = false
-    table_from_array = DataTables::DataTable.new(t_opts)
+    table_from_array = Daru::DataTables::DataTable.new(t_opts)
     table_opts = {
       class: "display",
       cellspacing: "0",
@@ -74,6 +74,4 @@ class ApplicationController < ActionController::Base
     @html_code_array = table_from_array.to_html(id='table_id4', options)
 
   end
-
-
 end
