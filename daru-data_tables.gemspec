@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency 'actionview'
   spec.add_development_dependency 'byebug'
+  spec.add_runtime_dependency 'daru'
 
   spec.add_development_dependency 'rspec', '~> 3.4'
   spec.add_development_dependency 'simplecov'
