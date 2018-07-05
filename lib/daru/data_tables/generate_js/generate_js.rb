@@ -33,6 +33,6 @@ module Daru
         js << "\n});"
         js
       end
-    end # module JsHelpers end
+    end
   end
 end

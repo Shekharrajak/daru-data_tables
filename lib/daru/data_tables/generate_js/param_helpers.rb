@@ -50,6 +50,8 @@ module Daru
           value
         end
       end
-    end # module ParamHelpers end
+      # rubocop:enable Metrics/PerceivedComplexity, Metrics/MethodLength
+      # rubocop:enable Metrics/CyclomaticComplexity, Metrics/AbcSize
+    end
   end
 end

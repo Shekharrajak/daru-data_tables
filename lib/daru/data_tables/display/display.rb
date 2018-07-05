@@ -50,7 +50,7 @@ module Daru
       # html code.
       def to_html(id=nil, options={})
         # More things can be added into table_script.erb
-        path = File.expand_path('../../templates/table_script.erb', __FILE__)
+        path = File.expand_path('../templates/table_script.erb', __dir__)
         template = File.read(path)
         id ||= SecureRandom.uuid # TODO: remove it or Use it for table tag.
         table_script = show_script(id, script_tag: false)
@@ -59,10 +59,10 @@ module Daru
         # the webpage. So it must generate table code with given options.
         unless options[:table_options].nil?
           options[:table_options][:id] = id
-          table_thead_tbody = options[:table_options].delete(:table_html)
-          table_thead_tbody ||= ''
+          table_thead = options[:table_options].delete(:table_html)
+          table_thead ||= ''
           html_code.concat(
-            content_tag('table', table_thead_tbody.html_safe, options[:table_options])
+            content_tag('table', table_thead.html_safe, options[:table_options])
           )
         end
         html_code
@@ -83,7 +83,7 @@ module Daru
         js << "\n</script>"
         js
       end
-    end # module Display end
+    end
 
     class DataTable
       include ActionView::Helpers::TagHelper # to use content_tag

@@ -2,15 +2,15 @@ module Daru
   module DataTables
     # generate initializing code
     def self.generate_init_code_js(dependent_js)
-      js_dir = File.expand_path('../../js', __FILE__)
-      path = File.expand_path('../../templates/init.inline.js.erb', __FILE__)
+      js_dir = File.expand_path('../js', __dir__)
+      path = File.expand_path('../templates/init.inline.js.erb', __dir__)
       template = File.read(path)
       ERB.new(template).result(binding)
     end
 
     def self.generate_init_code_css(dependent_css)
-      css_dir = File.expand_path('../../css', __FILE__)
-      path = File.expand_path('../../templates/init.inline.css.erb', __FILE__)
+      css_dir = File.expand_path('../css', __dir__)
+      path = File.expand_path('../templates/init.inline.css.erb', __dir__)
       template = File.read(path)
       ERB.new(template).result(binding)
     end
