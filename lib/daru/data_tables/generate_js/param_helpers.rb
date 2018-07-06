@@ -26,6 +26,8 @@ module Daru
       # rubocop:disable  Metrics/CyclomaticComplexity, Metrics/AbcSize
       def typecast(value, type=nil)
         case
+        when value.respond_to?(:js_code) && value.js_code?
+          value
         when value.is_a?(String)
           value.to_json
         when value.is_a?(Integer) || value.is_a?(Float)
