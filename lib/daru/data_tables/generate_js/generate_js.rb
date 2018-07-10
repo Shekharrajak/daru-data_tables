@@ -1,4 +1,5 @@
 require_relative 'param_helpers'
+require_relative '../core_ext/string'
 
 module Daru
   module DataTables
@@ -10,7 +11,7 @@ module Daru
       # Parameters:
       #  *element_id            [Required] The ID of the DIV element that the DataTable should be rendered in.
       def draw_js(element_id)
-        data_array = options.delete(:data) unless options[:data].nil?
+        data_array = extract_data_array
         draw_ajax_option
         js = ''
         js << "\n$(document).ready(function() {"
@@ -25,7 +26,7 @@ module Daru
       end
 
       def draw_js_iruby(element_id)
-        data_array = options.delete(:data) unless options[:data].nil?
+        data_array = extract_data_array
         draw_ajax_option
         js = ''
         js << "\n$( function () {"
@@ -36,6 +37,10 @@ module Daru
         js << "\n"
         js << "\n});"
         js
+      end
+
+      def extract_data_array
+        options.delete(:data) unless options[:data].nil?
       end
 
       def draw_ajax_option

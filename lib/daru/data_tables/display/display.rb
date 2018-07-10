@@ -15,11 +15,10 @@ module Daru
     #
     # use in Rails app : <%=raw dep_js %>
     #
-    def self.init_script(
+    def self.init_javascript(
       dependent_js=[
         'jquery-latest.min.js', 'jquery.dataTables.js'
-      ],
-      dependent_css=['jquery.dataTables.css']
+      ]
     )
       # TODO: there are many js and css files, that must be added for
       # more features. Refer: https://datatables.net/download/index
@@ -27,10 +26,24 @@ module Daru
       js << "\n<script type='text/javascript'>"
       js << Daru::DataTables.generate_init_code_js(dependent_js)
       js << "\n</script>"
-      js << "\n<style type='text/css'>"
-      js << Daru::DataTables.generate_init_code_css(dependent_css)
-      js << "\n</style>"
       js
+    end
+
+    def self.init_css(
+      dependent_css=['jquery.dataTables.css']
+    )
+      css = ''
+      css << "\n<style type='text/css'>"
+      css << Daru::DataTables.generate_init_code_css(dependent_css)
+      css << "\n</style>"
+      css
+    end
+
+    def self.init_script
+      init_code = ''
+      init_code << init_css
+      init_code << init_javascript
+      init_code
     end
 
     module Display
