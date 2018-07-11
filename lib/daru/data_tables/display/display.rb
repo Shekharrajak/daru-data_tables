@@ -66,18 +66,13 @@ module Daru
         path = File.expand_path('../templates/table_script.erb', __dir__)
         template = File.read(path)
         id ||= SecureRandom.uuid # TODO: remove it or Use it for table tag.
-        table_script = show_script(id, script_tag: false)
+        element_id ||= id
+        table_script = show_script(element_id, script_tag: false)
         html_code = ERB.new(template).result(binding)
         # table_options is given. That means table html code is not present in
         # the webpage. So it must generate table code with given options.
-        unless options[:table_options].nil?
-          options[:table_options][:id] = id
-          table_thead = options[:table_options].delete(:table_html)
-          table_thead ||= ''
-          html_code.concat(
-            content_tag('table', table_thead.html_safe, options[:table_options])
-          )
-        end
+        table_thead = extract_table
+        draw_table_thead(element_id, html_code, table_thead)
         html_code
       end
 
@@ -95,6 +90,38 @@ module Daru
         js << draw_js(element_id)
         js << "\n</script>"
         js
+      end
+
+      private
+
+      def extract_table
+        return data.to_html_thead unless data.is_a?(Array)
+        path = File.expand_path('../templates/thead.erb', __dir__)
+        template = File.read(path)
+        ERB.new(template).result(binding)
+      end
+
+      def draw_table_thead(element_id, html_code, table_thead)
+        if html_options && html_options[:table_options]
+          draw_table_thead_from_html_options(element_id, html_code, table_thead)
+        # if user provided html_options but not provided html_options[:table_options]
+        else
+          html_code.concat(
+            content_tag(
+              'table', table_thead.html_safe, id: element_id, class: 'display'
+            )
+          )
+        end
+      end
+
+      def draw_table_thead_from_html_options(element_id, html_code, table_thead)
+        html_options[:table_options][:id] = element_id
+        html_options[:table_options][:class] ||= 'display'
+        table_thead = html_options[:table_options].delete(:table_thead) if
+        html_options[:table_options][:table_thead]
+        html_code.concat(
+          content_tag('table', table_thead.html_safe, html_options[:table_options])
+        )
       end
     end
 
