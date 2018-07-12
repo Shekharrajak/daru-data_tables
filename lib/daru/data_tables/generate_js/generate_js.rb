@@ -11,12 +11,14 @@ module Daru
       # Parameters:
       #  *element_id            [Required] The ID of the DIV element that the DataTable should be rendered in.
       def draw_js(element_id)
-        data_array = extract_data_array
-        draw_ajax_option
+        if options[:data] && options[:data].length >= 50000
+          data_array = extract_data_array
+          draw_ajax_option
+        end
         js = ''
         js << "\n$(document).ready(function() {"
         js << "\n"
-        js << "\n\tvar data_array = #{data_array};"
+        js << "\n\tvar data_array = #{data_array};" unless options[:data]
         js << "\n\t$('##{element_id}').DataTable("
         js << "\n\t\t#{js_parameters(@options)}"
         js << "\n\t);"
@@ -26,11 +28,13 @@ module Daru
       end
 
       def draw_js_iruby(element_id)
-        data_array = extract_data_array
-        draw_ajax_option
+        if options[:data] && options[:data].length >= 50000
+          data_array = extract_data_array
+          draw_ajax_option
+        end
         js = ''
         js << "\n$( function () {"
-        js << "\n\tvar data_array = #{data_array};"
+        js << "\n\tvar data_array = #{data_array};" unless options[:data]
         js << "\n\tvar table = $('##{element_id}').DataTable("
         js << "\n\t\t#{js_parameters(@options)}"
         js << "\n\t);"
