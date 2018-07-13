@@ -11,7 +11,7 @@ module Daru
       # Parameters:
       #  *element_id            [Required] The ID of the DIV element that the DataTable should be rendered in.
       def draw_js(element_id)
-        if options[:data] && options[:data].length >= 50000
+        if options[:data] && options[:data].length >= 50_000
           data_array = extract_data_array
           draw_ajax_option
         end
@@ -28,7 +28,7 @@ module Daru
       end
 
       def draw_js_iruby(element_id)
-        if options[:data] && options[:data].length >= 50000
+        if options[:data] && options[:data].length >= 50_000
           data_array = extract_data_array
           draw_ajax_option
         end

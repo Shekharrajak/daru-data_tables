@@ -69,7 +69,7 @@ describe 'DataTable' do
 
       it 'sets correct attributes for large dataset' do
         expect(table_array_large.data).to eq(@array_large)
-        expect(table_array_large.options[:searching]).to eq(false)
+        expect(table_array_large.options).to include(:searching=>false)
         # set default html_options
         expect(table_array_large.html_options).to eq(
           :table_options => {:class=>"display", :cellspacing=>"0", :width=>"100%"}
