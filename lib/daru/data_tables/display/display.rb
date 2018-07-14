@@ -6,15 +6,8 @@ require 'action_view'
 
 module Daru
   module DataTables
-    # dependent script for the library. It must be added in the head tag
-    # of the web application.
-    #
-    # @example
-    #
-    # dep_js = DataTables.init_script
-    #
-    # use in Rails app : <%=raw dep_js %>
-    #
+    # @param dependent_js [Array] dependent js files required
+    # @return [String] js code of the dependent files
     def self.init_javascript(
       dependent_js=[
         'jquery-latest.min.js', 'jquery.dataTables.js'
@@ -29,6 +22,8 @@ module Daru
       js
     end
 
+    # @param [Array] dependent css files required
+    # @return [String] CSS code of the dependent file(s)
     def self.init_css(
       dependent_css=['jquery.dataTables.css']
     )
@@ -39,6 +34,15 @@ module Daru
       css
     end
 
+    # dependent script for the library. It must be added in the head tag
+    # of the web application.
+    #
+    # @return [String] code of the dependent css and js file(s)
+    # @example
+    #
+    # dep_js = DataTables.init_script
+    #
+    # use in Rails app : <%=raw dep_js %>
     def self.init_script
       init_code = ''
       init_code << init_css
@@ -47,6 +51,10 @@ module Daru
     end
 
     module Display
+      # @param dom [String] The ID of the DIV element that the DataTable
+      #   should be rendered in
+      # @param options [Hash] options provided
+      # @return [String] js script to render the table
       def show_script(dom=SecureRandom.uuid, options={})
         script_tag = options.fetch(:script_tag) { true }
         if script_tag
@@ -61,6 +69,11 @@ module Daru
       # If table_options is not present then it will assume that table tag is
       # already present in the web page source, where we are pasting the
       # html code.
+      # @param id [String] The ID of the DIV element that the DataTable
+      #   should be rendered in
+      # @param options [Hash] options provided
+      # @return [String] Generates JavaScript and renders the table in the
+      #   final HTML output.
       def to_html(id=nil, options={})
         # More things can be added into table_script.erb
         path = File.expand_path('../templates/table_script.erb', __dir__)
@@ -76,14 +89,16 @@ module Daru
         html_code
       end
 
+      # @param dom [String] The ID of the DIV element that the DataTable
+      #   should be rendered in
+      # @return [void] shows the datatable in IRuby notebook
       def show_in_iruby(dom=SecureRandom.uuid)
         IRuby.html(to_html(dom))
       end
 
-      # Generates JavaScript and renders the tabke in the final HTML output.
-      #
-      # Parameters:
-      #  *element_id            [Required] The ID of the DIV element that the table should be rendered in.
+      # @param element_id [String] The ID of the DIV element that the DataTable
+      #   should be rendered in
+      # @return [String] returns the javascript of the DataTable
       def to_js(element_id)
         js =  ''
         js << "\n<script type='text/javascript'>"

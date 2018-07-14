@@ -2,6 +2,15 @@ module Daru
   module DataTables
     class DataTable
       attr_accessor :html_options, :element_id, :options, :data
+      # @param data [Array, Daru::DataFrame, Daru::Vector] The data provided
+      #   by the user to generate the datatable
+      # @param options [Hash] Various options provided by the user to
+      #   incorporate in datatable
+      # @return Initializes the Daru::DataTables::DataTable object
+      # @example
+      #   vec = Daru::Vector.new([1, 2, 3], name: :a)
+      #   opts = {searching: false}
+      #   table = Daru::DataTables::DataTable.new(vec, opts)
       def initialize(data=[], options={})
         @element_id = options.delete(:element_id) unless options[:element_id].nil?
         @html_options = options.delete(:html_options) unless options[:html_options].nil?

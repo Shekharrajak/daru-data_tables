@@ -6,10 +6,9 @@ module Daru
     module JsHelpers
       include Daru::DataTables::ParamHelpers
 
-      # Generates JavaScript function for rendering the Table.
-      #
-      # Parameters:
-      #  *element_id            [Required] The ID of the DIV element that the DataTable should be rendered in.
+      # @param id [String] The ID of the DIV element that the DataTable
+      #   should be rendered in
+      # @return [String] Generates JavaScript function for rendering the Table.
       def draw_js(element_id)
         if options[:data] && options[:data].length >= 50_000
           data_array = extract_data_array
@@ -27,6 +26,10 @@ module Daru
         js
       end
 
+      # @param id [String] The ID of the DIV element that the DataTable
+      #   should be rendered in
+      # @return [String] Generates JavaScript function for rendering the Table
+      #   in IRuby notebook
       def draw_js_iruby(element_id)
         if options[:data] && options[:data].length >= 50_000
           data_array = extract_data_array
@@ -43,10 +46,12 @@ module Daru
         js
       end
 
+      # @return [Array, void] returns data Array if present in the options
       def extract_data_array
         options.delete(:data) unless options[:data].nil?
       end
 
+      # @return [void] adds serverSide and ajax options
       def draw_ajax_option
         ajax_str = ''
         ajax_str << "\nfunction ( data, callback, settings ) {"
@@ -64,6 +69,7 @@ module Daru
         @options[:ajax] = ajax_str.js_code
       end
 
+      # @return [String] returns the callback js from the server
       def set_callback_ajax
         callback_js = ''
         callback_js << "\n\t\tcallback( {"
