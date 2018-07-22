@@ -1,5 +1,7 @@
 require 'rspec'
 require 'simplecov'
+require 'daru'
+require 'daru/data_tables.rb'
 require 'coveralls'
 require 'simplecov-console'
 
@@ -11,4 +13,5 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
     # SimpleCov::Formatter::HTMLFormatter
   ]
 )
+
 SimpleCov.start
