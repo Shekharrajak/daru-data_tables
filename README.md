@@ -1,5 +1,9 @@
 # data_tables
 
+[![Gem Version](https://badge.fury.io/rb/daru-data_tables.svg)](https://badge.fury.io/rb/daru-data_tables)
+[![Build Status](https://travis-ci.org/shekharrajak/daru-data_tables.svg?branch=master)](https://travis-ci.org/shekharrajak/daru-data_tables)
+[![Coverage Status](https://coveralls.io/repos/github/shekharrajak/daru-data_tables/badge.svg?branch=master)](https://coveralls.io/github/shekharrajak/daru-data_tables?branch=master)
+
 This is Ruby gem for the jQuery Javascript library. This gem is created to be used in [daru-view](https://guthub.com/shekharrajak/daru-view). It can create table from Daru::DataFrame and Daru::Vector to display in webpages as well as IRuby notebook.
 
 DataTable is very useful in loading large dataset and also we can load data into pieces.
