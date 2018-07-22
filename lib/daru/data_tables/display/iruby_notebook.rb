@@ -1,3 +1,5 @@
+require 'daru/data_tables/constants'
+
 module Daru
   module DataTables
     # generate initializing code
@@ -25,7 +27,7 @@ module Daru
     # DataTables.init_iruby
     #
     def self.init_iruby(
-      dependent_js=['jquery.dataTables.js']
+      dependent_js=DATATABLES_DEPENDENCIES_IRUBY
     )
       # dependent_css=['jquery.dataTables.css']
       # Note: Jquery is dependecy for DataTables.

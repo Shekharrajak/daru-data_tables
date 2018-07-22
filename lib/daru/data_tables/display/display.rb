@@ -3,15 +3,14 @@ require 'erb'
 require_relative 'iruby_notebook'
 require_relative '../generate_js/generate_js'
 require 'action_view'
+require 'daru/data_tables/constants'
 
 module Daru
   module DataTables
     # @param dependent_js [Array] dependent js files required
     # @return [String] js code of the dependent files
     def self.init_javascript(
-      dependent_js=[
-        'jquery-latest.min.js', 'jquery.dataTables.js'
-      ]
+      dependent_js=DATATABLES_DEPENDENCIES_WEB
     )
       # TODO: there are many js and css files, that must be added for
       # more features. Refer: https://datatables.net/download/index
@@ -25,7 +24,7 @@ module Daru
     # @param [Array] dependent css files required
     # @return [String] CSS code of the dependent file(s)
     def self.init_css(
-      dependent_css=['jquery.dataTables.css']
+      dependent_css=DATATABLES_DEPENDENCIES_CSS
     )
       css = ''
       css << "\n<style type='text/css'>"
