@@ -2,9 +2,9 @@ require_relative 'param_helpers'
 require_relative '../core_ext/string'
 
 module Daru
-  module DataTables
+  module View
     module JsHelpers
-      include Daru::DataTables::ParamHelpers
+      include Daru::View::ParamHelpers
 
       # @param id [String] The ID of the DIV element that the DataTable
       #   should be rendered in

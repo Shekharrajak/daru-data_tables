@@ -1,7 +1,7 @@
-require 'daru/data_tables/constants'
+require 'daru/view/constants'
 
 module Daru
-  module DataTables
+  module View
     # generate initializing code
     def self.generate_init_code_js(dependent_js)
       js_dir = File.expand_path('../js', __dir__)

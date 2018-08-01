@@ -1,4 +1,4 @@
-require 'daru/data_tables/version'
-require 'daru/data_tables/data_table'
-require 'daru/data_tables/display/iruby_notebook'
-require 'daru/data_tables/display/display'
+require 'daru/view/version'
+require 'daru/view/data_table'
+require 'daru/view/display/iruby_notebook'
+require 'daru/view/display/display'

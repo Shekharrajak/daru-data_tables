@@ -1,5 +1,5 @@
 module Daru
-  module DataTables
+  module View
     class DataTable
       attr_accessor :html_options, :element_id, :options, :data
       # @param data [Array, Daru::DataFrame, Daru::Vector] The data provided

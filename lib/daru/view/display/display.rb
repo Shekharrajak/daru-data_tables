@@ -3,10 +3,10 @@ require 'erb'
 require_relative 'iruby_notebook'
 require_relative '../generate_js/generate_js'
 require 'action_view'
-require 'daru/data_tables/constants'
+require 'daru/view/constants.rb'
 
 module Daru
-  module DataTables
+  module View
     # @param dependent_js [Array] dependent js files required
     # @return [String] js code of the dependent files
     def self.init_javascript(
@@ -16,7 +16,7 @@ module Daru
       # more features. Refer: https://datatables.net/download/index
       js =  ''
       js << "\n<script type='text/javascript'>"
-      js << Daru::DataTables.generate_init_code_js(dependent_js)
+      js << Daru::View.generate_init_code_js(dependent_js)
       js << "\n</script>"
       js
     end
@@ -28,7 +28,7 @@ module Daru
     )
       css = ''
       css << "\n<style type='text/css'>"
-      css << Daru::DataTables.generate_init_code_css(dependent_css)
+      css << Daru::View.generate_init_code_css(dependent_css)
       css << "\n</style>"
       css
     end

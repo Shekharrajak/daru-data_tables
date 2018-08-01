@@ -10,6 +10,7 @@ PATH
   remote: ../..
   specs:
     daru-data_tables (0.1.0)
+      daru
 
 GEM
   remote: https://rubygems.org/
@@ -261,4 +262,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.15.3
+   1.16.2

@@ -46,10 +46,10 @@ class ApplicationController < ActionController::Base
       }
     }
 
-    @table_array_large = Daru::DataTables::DataTable.new(data1, options)
-    @table_dv = Daru::DataTables::DataTable.new(vec, options2)
-    @table_array = Daru::DataTables::DataTable.new(data, options3)
-    @table_df = Daru::DataTables::DataTable.new(df)
+    @table_array_large = Daru::View::DataTable.new(data1, options)
+    @table_dv = Daru::View::DataTable.new(vec, options2)
+    @table_array = Daru::View::DataTable.new(data, options3)
+    @table_df = Daru::View::DataTable.new(df)
 
   end
 end

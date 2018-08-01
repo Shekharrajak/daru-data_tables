@@ -2,6 +2,6 @@ require 'rspec'
 require 'simplecov'
 require 'daru'
 
-require 'daru/data_tables.rb'
+require 'daru/view.rb'
 
 SimpleCov.start

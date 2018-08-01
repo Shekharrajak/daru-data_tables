@@ -1,6 +1,6 @@
 require 'spec_helper.rb'
 
-describe Daru::DataTables::JsHelpers do
+describe Daru::View::JsHelpers do
   before do
     @array_large = []
     for i in 0..50000
@@ -52,14 +52,14 @@ describe Daru::DataTables::JsHelpers do
     }
   }
   let(:opts3) {{searching: false}}
-  let(:table_array) { Daru::DataTables::DataTable.new(data_array, opts1) }
-  let(:table_dv) { Daru::DataTables::DataTable.new(vec, opts2) }
-  let(:table_df) { Daru::DataTables::DataTable.new(df) }
+  let(:table_array) { Daru::View::DataTable.new(data_array, opts1) }
+  let(:table_dv) { Daru::View::DataTable.new(vec, opts2) }
+  let(:table_df) { Daru::View::DataTable.new(df) }
   let(:table_array_large) {
-    Daru::DataTables::DataTable.new(@array_large, opts3)
+    Daru::View::DataTable.new(@array_large, opts3)
   }
-  let(:table_dv_large) { Daru::DataTables::DataTable.new(vec_large) }
-  let(:table_df_large) { Daru::DataTables::DataTable.new(df_large) }
+  let(:table_dv_large) { Daru::View::DataTable.new(vec_large) }
+  let(:table_df_large) { Daru::View::DataTable.new(df_large) }
 
   describe "#draw_js" do
     it "calls other methods if data length is more than 50000" do
