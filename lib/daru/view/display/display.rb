@@ -3,7 +3,7 @@ require 'erb'
 require_relative 'iruby_notebook'
 require_relative '../generate_js/generate_js'
 require 'action_view'
-require 'daru/view/constants.rb'
+require 'daru/view/constants'
 
 module Daru
   module View
