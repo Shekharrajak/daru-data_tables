@@ -1,4 +1,4 @@
-require 'daru/view/constants'
+require 'daru/view/constants_data_table'
 
 module Daru
   module View
