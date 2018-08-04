@@ -6,7 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%=raw Daru::View.init_script %>
+    <%=raw Daru::View::DataTables.init_script %>
   </head>
 
   <body>

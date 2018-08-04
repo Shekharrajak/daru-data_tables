@@ -3,7 +3,7 @@ require 'spec_helper.rb'
 describe Daru::View do
   describe '.init_javascript' do
     it 'loads datatables dependent js files' do
-      js = Daru::View.init_javascript
+      js = Daru::View::DataTables.init_javascript
       expect(js).to match(/BEGIN jquery-latest.min.js/)
       expect(js).to match(/END jquery-latest.min.js/)
       expect(js).to match(/BEGIN jquery.dataTables.js/)
@@ -13,7 +13,7 @@ describe Daru::View do
 
   describe '.init_css' do
     it 'loads datatables dependent js files' do
-      css = Daru::View.init_css
+      css = Daru::View::DataTables.init_css
       expect(css).to match(/BEGIN jquery.dataTables.css/)
       expect(css).to match(/END jquery.dataTables.css/)
     end
@@ -21,7 +21,7 @@ describe Daru::View do
 
   describe '.init_script' do
     it 'loads datatables dependent js files' do
-      script = Daru::View.init_script
+      script = Daru::View::DataTables.init_script
       expect(script).to match(/BEGIN jquery-latest.min.js/)
       expect(script).to match(/END jquery-latest.min.js/)
       expect(script).to match(/BEGIN jquery.dataTables.js/)
