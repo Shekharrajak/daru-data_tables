@@ -1,5 +1,6 @@
 module Daru
   module View
+    class Engine < ::Rails::Engine; end if defined?(Rails)
     class DataTable
       attr_accessor :html_options, :element_id, :options, :data
       # @param data [Array, Daru::DataFrame, Daru::Vector] The data provided
