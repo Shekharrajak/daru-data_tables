@@ -50,6 +50,16 @@ class ApplicationController < ActionController::Base
     @table_dv = Daru::View::DataTable.new(vec, options2)
     @table_array = Daru::View::DataTable.new(data, options3)
     @table_df = Daru::View::DataTable.new(df)
+    render "datatables" , layout: "application"
+  end
 
+  def datatables_bunch_js
+    df = Daru::DataFrame.new(
+      { b: [11,12,13,14,15], a: [1,2,3,4,5], c: [11,22,33,44,55] },
+      order: [:a, :b, :c],
+      index: [:one, :two, :three, :four, :five]
+    )
+    @table_df = Daru::View::DataTable.new(df)
+    render "datatables_bunch_js" , layout: "datatables"
   end
 end
