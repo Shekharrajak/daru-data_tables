@@ -1,7 +1,7 @@
 require 'date'
 
 module Daru
-  module DataTables
+  module View
     module ParamHelpers
       def js_parameters(options)
         return '' if options.nil?

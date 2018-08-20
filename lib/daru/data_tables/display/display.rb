@@ -3,50 +3,52 @@ require 'erb'
 require_relative 'iruby_notebook'
 require_relative '../generate_js/generate_js'
 require 'action_view'
-require 'daru/data_tables/constants'
+require 'daru/data_tables/constants_data_table'
 
 module Daru
-  module DataTables
-    # @param dependent_js [Array] dependent js files required
-    # @return [String] js code of the dependent files
-    def self.init_javascript(
-      dependent_js=DATATABLES_DEPENDENCIES_WEB
-    )
-      # TODO: there are many js and css files, that must be added for
-      # more features. Refer: https://datatables.net/download/index
-      js =  ''
-      js << "\n<script type='text/javascript'>"
-      js << Daru::DataTables.generate_init_code_js(dependent_js)
-      js << "\n</script>"
-      js
-    end
+  module View
+    class DataTables
+      # @param dependent_js [Array] dependent js files required
+      # @return [String] js code of the dependent files
+      def self.init_javascript(
+        dependent_js=DATATABLES_DEPENDENCIES_WEB
+      )
+        # TODO: there are many js and css files, that must be added for
+        # more features. Refer: https://datatables.net/download/index
+        js =  ''
+        js << "\n<script type='text/javascript'>"
+        js << Daru::View.generate_init_code_js(dependent_js)
+        js << "\n</script>"
+        js
+      end
 
-    # @param [Array] dependent css files required
-    # @return [String] CSS code of the dependent file(s)
-    def self.init_css(
-      dependent_css=DATATABLES_DEPENDENCIES_CSS
-    )
-      css = ''
-      css << "\n<style type='text/css'>"
-      css << Daru::DataTables.generate_init_code_css(dependent_css)
-      css << "\n</style>"
-      css
-    end
+      # @param [Array] dependent css files required
+      # @return [String] CSS code of the dependent file(s)
+      def self.init_css(
+        dependent_css=DATATABLES_DEPENDENCIES_CSS
+      )
+        css = ''
+        css << "\n<style type='text/css'>"
+        css << Daru::View.generate_init_code_css(dependent_css)
+        css << "\n</style>"
+        css
+      end
 
-    # dependent script for the library. It must be added in the head tag
-    # of the web application.
-    #
-    # @return [String] code of the dependent css and js file(s)
-    # @example
-    #
-    # dep_js = DataTables.init_script
-    #
-    # use in Rails app : <%=raw dep_js %>
-    def self.init_script
-      init_code = ''
-      init_code << init_css
-      init_code << init_javascript
-      init_code
+      # dependent script for the library. It must be added in the head tag
+      # of the web application.
+      #
+      # @return [String] code of the dependent css and js file(s)
+      # @example
+      #
+      # dep_js = DataTables.init_script
+      #
+      # use in Rails app : <%=raw dep_js %>
+      def self.init_script
+        init_code = ''
+        init_code << init_css
+        init_code << init_javascript
+        init_code
+      end
     end
 
     module Display
