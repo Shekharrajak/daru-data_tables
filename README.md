@@ -10,7 +10,8 @@ DataTable is very useful in loading large dataset and also we can load data into
 
 ## Examples :
 
-- [IRuby notebook examples](http://nbviewer.jupyter.org/github/Shekharrajak/data_tables/tree/master/spec/dummy_iruby/)
+- [Rails examples](https://github.com/Shekharrajak/daru-data_tables/tree/master/spec/dummy_rails)
+
 
 ## Installation
 
