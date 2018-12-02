@@ -32,11 +32,10 @@ CSS files can be included as:
 
 **Features:**
 
--
+- [Discussion at datatables forum](https://github.com/Shekharrajak/daru-data_tables/wiki/Discussion-in-datatables-forum)
 
 **NOTE:**
 
-- [Discussion at datatables forum](https://github.com/Shekharrajak/daru-data_tables/wiki/Discussion-in-datatables-forum)
 
 - [GSoC 2017 Blog post](http://shekharrajak.github.io/gsoc_2017_posts/)
 
