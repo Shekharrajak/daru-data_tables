@@ -112,6 +112,7 @@ module Daru
 
       def extract_table
         return data.to_html_thead unless data.is_a?(Array)
+
         path = File.expand_path('../templates/thead.erb', __dir__)
         template = File.read(path)
         ERB.new(template).result(binding)
