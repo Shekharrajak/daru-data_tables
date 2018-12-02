@@ -26,7 +26,7 @@ CSS files can be included as:
 
 * [GSoC 2018 project](https://github.com/SciRuby/daru-view/wiki/GSoC-2018---Progress-Report)
 
-* Wiki post : https://github.com/SciRuby/daru-view/wiki/DataTables-to-load-large-set-data-in-daru-view-table
+* [Wiki page about loading large set in daru-view using daru-data_tables](https://github.com/SciRuby/daru-view/wiki/DataTables-to-load-large-set-data-in-daru-view-table)
 
 ## 0.1.0 (2017-09-20)
 
@@ -36,8 +36,8 @@ CSS files can be included as:
 
 **NOTE:**
 
-- Discussion : https://github.com/Shekharrajak/daru-data_tables/wiki/Discussion-in-datatables-forum
+- [Discussion at datatables forum](https://github.com/Shekharrajak/daru-data_tables/wiki/Discussion-in-datatables-forum)
 
-- Blog post: http://shekharrajak.github.io/gsoc_2017_posts/
+- [GSoC 2017 Blog post](http://shekharrajak.github.io/gsoc_2017_posts/)
 
-- Blog post at SciRuby, how daru-data_table gem is used in daru-view : http://sciruby.com/blog/2017/09/01/gsoc-2017-data-visualization-using-daru-view/
+- [Blog post at SciRuby, how daru-data_table gem is used in daru-view](http://sciruby.com/blog/2017/09/01/gsoc-2017-data-visualization-using-daru-view/)
