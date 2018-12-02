@@ -47,6 +47,7 @@ module Daru
         case
         when data_set.is_a?(Daru::DataFrame)
           return ArgumentError unless data_set.index.is_a?(Daru::Index)
+
           rows = data_set.access_row_tuples_by_indexs(*data_set.index.to_a)
           convert_to_array_of_array(rows)
         when data_set.is_a?(Daru::Vector)
